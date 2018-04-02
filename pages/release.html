@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../font-x/iconfont.css">
+    <script src="../js/jquery-1.8.2.min.js"></script>
+    <script src="../js/iscroll-zoom.js"></script>
+    <script src="../js/hammer.js"></script>
+    <script src="../js/lrz.all.bundle.js"></script>
+    <script src="../js/jquery.photoClip.js"></script>
+    <title>发布</title>
+    <style>
+        body {
+            background: #f0f0f0;
+        }
+
+        .header {
+            width: 100%;
+            height: 1.877rem;
+            line-height: 1.877rem;
+            position: relative;
+            text-align: center;
+            font-size: 0.7rem;
+            background: #fff;
+            /*border-bottom: 1px solid #ccd7e2;*/
+        }
+
+        .header > i {
+            position: absolute;
+            left: 0.64rem;
+        }
+
+        .header > .iconfont {
+            font-size: 0.7rem;
+        }
+
+        .content {
+            background: #f0f0f0;
+            /*min-height: 1000px;*/
+        }
+
+        .c_header {
+            background: #fff;
+            padding: 0.448rem 0.661rem;
+            min-height: 3.413rem;
+        }
+
+        .c_header > ul > li {
+            width: 2.517rem;
+            height: 2.517rem;
+            float: left;
+            margin-right: 0.341rem;
+            margin-bottom: 0.341rem;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+
+        .c_header > ul > li > img:nth-child(1) {
+            width: 100%;
+            /*height: 100%;*/
+            border: 0;
+            font-size: 0;
+            vertical-align: bottom;
+        }
+
+        .c_header > ul > li > img:nth-child(2) {
+            width: 0.6rem;
+            height: 0.6rem;
+            position: absolute;
+            right: -0.1rem;
+            top: -0.1rem;
+        }
+
+        .c_describe {
+            padding: 0.521rem 0.64rem;
+            background: #fff;
+            margin-top: 0.427rem;
+        }
+
+        .c_d_header {
+            border: 1px dashed #ccc;
+            width: 100%;
+            height: 1.536rem;
+            line-height: 1.536rem;
+            border-radius: 0.213rem;
+        }
+
+        .c_d_header > span {
+            margin: 0 0.533rem;
+            font-size: 0.64rem;
+            color: #333;
+        }
+
+        .c_d_header > input {
+            border: none;
+            outline: none;
+            width: 70%;
+        }
+
+        .c_d_detail {
+            height: 4.963rem;
+            width: 100%;
+            margin-top: 0.427rem;
+            position: relative;
+        }
+
+        .c_d_detail > textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 0.213rem;
+            padding: 0.5rem;
+        }
+
+        .c_d_detail > span {
+            position: absolute;
+            bottom: 0.32rem;
+            right: 0.512rem;
+            font-size: 0.427rem;
+            color: #999;
+        }
+
+        .c_menu {
+            background: #fff;
+            margin-top: 0.427rem;
+            padding-left: 0.64rem;
+        }
+
+        .c_menu > div {
+            width: 100%;
+            height: 1.8985rem;
+            line-height: 1.8985rem;
+            background: url("../idleImg/youjiantou.png") no-repeat 95% 50%;
+            background-size: 0.277rem 0.512rem;
+
+        }
+
+        .c_menu > div > a:nth-child(1) {
+            float: left;
+            font-size: 0.64rem;
+            color: #333;
+        }
+
+        .c_menu > div > a:nth-child(2) {
+            float: left;
+            margin-left: 1rem;
+        }
+
+        .c_menu > div > a:nth-child(3) {
+            float: right;
+            margin-right: 1.259rem;
+            font-size: 0.512rem;
+            color: #999;
+        }
+
+        .c_address {
+            margin-top: 0.427rem;
+            padding: 0.512rem 0 0.512rem 1.835rem;
+            background: url("../idleImg/address.png") no-repeat 0.64rem 50% #fff;
+            background-size: 0.683rem 0.853rem;
+            position: relative;
+        }
+
+        .c_address > p:nth-child(1) {
+            font-size: 0.64rem;
+            color: #333;
+            /*line-height:1.536rem;*/
+        }
+
+        .c_address > p:nth-child(2) {
+            font-size: 0.512rem;
+            color: #333;
+            /*line-height:1.536rem;*/
+
+        }
+
+        .c_address > img {
+            position: absolute;
+            right: 0.64rem;
+            top: 0.981rem;
+            width: 0.277rem;
+            height: 0.512rem;
+        }
+
+        .c_agreement {
+            padding: 0.512rem 0 0.512rem 1.557rem;
+            background: url("../idleImg/duihao_1.png") no-repeat 0.661rem 50%;
+            background-size: 0.512rem 0.512rem;
+        }
+
+        .c_fabu_btn {
+            padding: 0.3rem 0.64rem;
+        }
+
+        .c_fabu_btn > div {
+            height: 2.091rem;
+            line-height: 2.091rem;
+            border-radius: 1.045rem;
+            background: url("../idleImg/fabu_btn_bac.png") no-repeat 50% 50%;
+            background-size: 100%;
+            text-align: center;
+        }
+
+        .c_fabu_btn > div > span {
+            font-size: 0.768rem;
+            color: #ffffff;
+        }
+
+        .model {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4);
+            display: none;
+        }
+
+        .model > div {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 0 0.64rem;
+            width: 100%;
+        }
+
+        .model_top {
+            width: 100%;
+            /*height:4.246rem;*/
+            background: #fff;
+            border-radius: 0.512rem;
+            padding: 0.64rem 0 0 0;
+        }
+
+        .model_top > p {
+            font-size: 0.512rem;
+            color: #999999;
+            text-align: center;
+            margin-bottom: 0.64rem;
+        }
+
+        .model_top > div {
+            height: 2.091rem;
+            line-height: 2.091rem;
+            text-align: center;
+            font-size: 0.64rem;
+            color: #ff3333;
+        }
+
+        .model_bottom {
+            height: 2.091rem;
+            line-height: 2.091rem;
+            background-color: #ffffff;
+            border-radius: 0.512rem;
+            width: 100%;
+            text-align: center;
+            margin: 0.32rem 0 0.213rem 0;
+        }
+
+        .model_bottom > span {
+            font-size: 0.64rem;
+            color: #333;
+        }
+
+        .fictitiousKey {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .fictitiousKey > div {
+            width: 100%;
+            /*height:60%;*/
+            background: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .price {
+            display: flex;
+        }
+
+        .price > div {
+            flex-grow: 1;
+            height: 1.877rem;
+            line-height: 1.877rem;
+            padding-left: 0.619rem;
+        }
+
+        .price > div > span {
+            font-size: 0.64rem;
+            color: #333;
+        }
+
+        .price > div > input {
+            border: none;
+            outline: none;
+            text-indent: 0.5rem;
+        }
+
+        .freight {
+            height: 1.877rem;
+            line-height: 1.877rem;
+            padding-left: 0.619rem;
+            padding-right: 0.619rem;
+
+        }
+
+        .freight > span:nth-child(1) {
+            float: left;
+            font-size: 0.64rem;
+            color: #333333;
+        }
+
+        .freight > input:nth-child(2) {
+            text-indent: 0.5rem;
+            border: none;
+            outline: none;
+        }
+
+        .freight > span:nth-child(3) {
+            float: right;
+            font-size: 0.64rem;
+            color: #999;
+        }
+
+        .key {
+            display: flex;
+        }
+
+        .key_left {
+            width: 11.883rem;
+            /*background: #ccc;*/
+        }
+
+        .key_left > ul > li {
+            float: left;
+            width: 33.333333%;
+            height: 2.304rem;
+            line-height: 2.304rem;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .key_left > ul > li > span {
+            font-size: 1.024rem;
+            color: #333;
+        }
+
+        .key_right {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .key_right > div {
+            /*width: 100%;*/
+            /*height:50%;*/
+        }
+
+        .key_right > div:nth-child(1) {
+            height: 4.565rem;
+            background: url("../idleImg/del_btn.png") no-repeat 50% 50% #ccc;
+            background-size: 0.875rem 0.683rem;
+        }
+
+        .key_right > div:nth-child(2) {
+            flex-grow: 1;
+
+            background: #ff6666;
+            text-align: center;
+            line-height: 4.5rem;
+        }
+
+        .key_right > div:nth-child(2) > span {
+            font-size: 0.768rem;
+            color: #ffffff;
+        }
+
+        .shouqiKey {
+            background: url("../idleImg/shouqi_key.png") no-repeat 50% 55%;
+            background-size: 0.768rem 0.555rem;
+        }
+
+        .fictitiousKey {
+            display: none;
+        }
+
+        .camera {
+            background: url("../idleImg/xiangji_img.png") no-repeat 50% 50%;
+            background-size: 100% 100%;
+        }
+
+        .camera > label {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .camera > label > input {
+            display: none;
+        }
+
+        .cut_box {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: none;
+        }
+
+        /*.cut_box_wraper{*/
+        /*width: 100%;*/
+        /*height:100%;*/
+        /*background: rgba(0,0,0,.4);*/
+        /*position: relative;*/
+        /*}*/
+        /*.cut_box_con{*/
+        /*width: 100%;*/
+        /*position: absolute;*/
+        /*top:0;*/
+        /*left:0;*/
+        /*right:0;*/
+        /*bottom:0;*/
+        /*margin: auto;*/
+        /*}*/
+        .cut_box > button {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .cut_box_menu {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2.2rem;
+            background: #232326;
+            display: flex;
+        }
+
+        .cut_box_menu > div {
+            flex-grow: 1;
+            text-align: center;
+            line-height: 2.2rem;
+        }
+
+        .cut_box_menu > div > span {
+            color: #fff;
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <i class="iconfont icon-zuojiantou back_btn"></i>
+    <span>店主</span>
+</div>
+<div class="content">
+    <!--
+        标题
+    -->
+    <div class="c_header">
+        <ul class="clearFix">
+            <li class="camera" style="margin-left:6rem; ">
+                <label>
+                    <!--手机图库，多选-->
+                    <input class="imgFileBtn" type="file" accept="image/*" multiple>
+                    <!--拍照-->
+                    <input class="imgFileBtn" type="file" accept="image/*" capture="camera">
+                </label>
+            </li>
+        </ul>
+    </div>
+    <!--
+        描述
+    -->
+    <div class="c_describe">
+        <div class="c_d_header">
+            <span>标题</span>
+            <input type="text" placeholder="宝贝名称品牌型号不可少">
+        </div>
+        <div class="c_d_detail">
+            <textarea name="" id=""></textarea>
+            <span><span>0</span>/200</span>
+        </div>
+    </div>
+    <!--
+        分类 价格
+    -->
+    <div class="c_menu" >
+        <div  id="menu" class="clearFix" style="border-bottom: 1px solid #ccc;">
+            <a href="#">分类</a>
+            <a href="#" id="feilei_box" style="float: right;margin-right: 1.5rem;"></a>
+            <a id="title" href="#" >分类必填</a>
+        </div>
+        <div class="clearFix price_btn">
+            <a href="#">价格</a>
+            <a href="#" class="price_box" style="float: right;margin-right: 1.5rem;"></a>
+            <a href="#" class="gengduo_ben">开个价</a>
+        </div>
+    </div>
+    <!--
+        地址
+    -->
+    <div class="c_address">
+        <p>售后地址：王小明 12345678987</p>
+        <p>河南省郑州市郑东新区龙子湖校区学府广场B座1205</p>
+        <img src="../idleImg/youjiantou.png" alt="">
+    </div>
+    <!--
+        协议
+    -->
+    <div class="c_agreement">
+        <span>阅读并同意</span>
+        <a href="#">《闲置商品售卖协议》</a>
+        <a href="#">《社区使用协议》</a>
+    </div>
+    <!--
+        发布按钮
+    -->
+    <div class="c_fabu_btn">
+        <div>
+            <span>发布</span>
+        </div>
+    </div>
+</div>
+<!--
+    取消编辑模态框
+-->
+<div class="model">
+    <div>
+        <div class="model_top">
+            <p>还未完成发布，退出将可能丢失当前编辑的内容</p>
+            <div>
+                <span>退出编辑</span>
+            </div>
+        </div>
+        <div class="model_bottom">
+            <span>取消</span>
+        </div>
+    </div>
+</div>
+<!--
+    虚拟键盘
+-->
+<div class="fictitiousKey">
+    <div>
+        <div class="price">
+            <div>
+                <span>价格:</span>
+                <input style="color: red;" id="presentPrice" type="text" placeholder="¥0.00">
+            </div>
+            <div>
+                <span>原价:</span>
+                <input style="color: red;" id="originalPrice" type="text" placeholder="¥0.00">
+            </div>
+        </div>
+        <div class="freight clearFix">
+            <span class="sty">运费:</span>
+            <input style="color: red;" id="freight" type="text" placeholder="¥0.00">
+            <span>默认包邮</span>
+        </div>
+        <div class="key">
+            <div class="key_left">
+                <ul class="clearFix">
+                    <li><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                    <li><span>5</span></li>
+                    <li><span>6</span></li>
+                    <li><span>7</span></li>
+                    <li><span>8</span></li>
+                    <li><span>9</span></li>
+                    <li class="shouqiKey"></li>
+                    <li><span>0</span></li>
+                    <li><span>.</span></li>
+                </ul>
+            </div>
+            <div class="key_right">
+                <div id="del">
+                    <span> </span>
+                </div>
+                <div id="ok">
+                    <span>完成</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+    图片裁剪
+-->
+<div class="cut_box">
+    <div class="cut_box_menu" style="z-index: 1000">
+        <div class="quexiao_btn">
+            <span>取消</span>
+        </div>
+        <!--<div class="xuanzhuan_btn">-->
+            <!--<span>旋转</span>-->
+        <!--</div>-->
+        <div id="clipBtn">
+            <span>裁剪</span>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        //模态框的取消和显示
+        $('.back_btn').click(function () {
+            $('.model').show();
+        });
+        $('.model_top>div').click(function () {
+            window.location.href = '../index.html';
+        });
+        $('.model_bottom').click(function () {
+            $('.model').hide();
+        });
+        //状态开关
+        var flag = 0;
+        //新价格
+        $('#presentPrice').focus(function () {
+            flag = 1;
+            $('#originalPrice').parent().children('span').css('color','#000');
+            $('#freight').parent().children('.sty').css('color','#000');
+            $(this).parent().children('span').css('color','red');
+            $(this).blur();
+            $(this).css('color','red');
+            $('#originalPrice').css('color','#000');
+            $('#freight').css('color','#000');
+        });
+        //原价格
+        $('#originalPrice').focus(function () {
+            flag = 2;
+            $(this).blur();
+            $('#presentPrice').parent().children('span').css('color','#000');
+            $('#freight').parent().children('.sty').css('color','#000');
+            $(this).parent().children('span').css('color','red');
+            $(this).css('color','red');
+            $('#freight').css('color','#000');
+            $('#presentPrice').css('color','#000');
+        });
+        //运费
+        $('#freight').focus(function () {
+            flag = 3;
+            $(this).blur();
+            $('#presentPrice').parent().children('span').css('color','#000');
+            $('#originalPrice').parent().children('span').css('color','#000');
+            $(this).parent().children('.sty').css('color','red');
+            $(this).css('color','red');
+            $('#presentPrice').css('color','#000');
+            $('#originalPrice').css('color','#000');
+        });
+        //点击虚拟键盘添加价格的时候
+        $('.key_left>ul>li').click(function () {
+            if (flag == 1) {
+                var presentPrice = $('#presentPrice').val();
+                var s = $(this).children('span').text();
+                $('#presentPrice').val(presentPrice + s)
+
+            } else if (flag == 2) {
+                var originalPrice = $('#originalPrice').val();
+                var i = $(this).children('span').text();
+                $('#originalPrice').val(originalPrice + i)
+            } else if (flag == 3) {
+                var freight = $('#freight').val();
+                var a = $(this).children('span').text();
+                $('#freight').val(freight + a)
+            }
+        });
+        //点击虚拟键盘删除的时候
+        $('#del').click(function () {
+            if (flag == 1) {
+                var presentPrice = $('#presentPrice').val();
+                var arr_1 = presentPrice.split("");
+                arr_1.splice(presentPrice.length - 1, 1);
+                $('#presentPrice').val(arr_1.join(""));
+            } else if (flag == 2) {
+                var originalPrice = $('#originalPrice').val();
+                var arr_2 = originalPrice.split("");
+                arr_2.splice(originalPrice.length - 1, 1);
+                $('#originalPrice').val(arr_2.join(""));
+            } else if (flag == 3) {
+                var freight = $('#freight').val();
+                var arr_3 = freight.split("");
+                arr_3.splice(freight.length - 1, 1);
+                $('#freight').val(arr_3.join(""));
+            }
+        });
+        //点击隐藏虚拟键盘的时候
+        $('.shouqiKey').click(function () {
+            $('.fictitiousKey').hide();
+        });
+        $('.price_btn').click(function () {
+            $('.fictitiousKey').show();
+        });
+        //点击虚拟键盘完成的时候
+        $('#ok').click(function () {
+            var presentPrice = $('#presentPrice').val();
+            var originalPrice = $('#originalPrice').val();
+            var freight = $('#freight').val();
+//            var str = '价格' + presentPrice + '-原价' + originalPrice + '-运费' + freight;
+            var str = presentPrice;
+            $('.price_box').html(str);
+            $('.fictitiousKey').hide();
+            $('.gengduo_ben').hide();
+        });
+        //调用相机摄像头
+        $('.camera').click(function () {
+            $(this).css({
+                'marginLeft': '0',
+                "background": "url('../idleImg/tianjiatupian.png') no-repeat 50% 50%",
+                "background-size": "100%"
+            });
+        });
+        var len = 0;
+        //调用裁剪功能
+        var clipArea = new bjj.PhotoClip(".cut_box", {
+            size: [260, 260],
+            outputSize: [260, 260],
+            file: ".imgFileBtn",
+            view: "",
+            ok: "#clipBtn",
+            loadStart: function () {
+                console.log("照片读取中");
+            },
+            loadComplete: function () {
+                console.log("照片读取完成");
+            },
+            clipFinish: function (dataURL) {
+                //计算所添加的图片数量
+                len += 1;
+                //创建元素把路径显示到页面
+                if(len<=9){
+                    $('.camera').before($("<li class='cat_img'><img class='cut_box_img' src=" + dataURL + "><img class='del_img_btn' src='../idleImg/del_img_btn.png'></li>"));
+                }else {
+                    console.log('添加数量不能超过9张');
+                }
+            }
+        });
+        $('#clipBtn').click(function () {
+            $('.cut_box').hide();
+        });
+        //取消按钮
+        $('.quexiao_btn').click(function () {
+            $('.cut_box').hide();
+        })
+
+        //解决上传图片时capture="camera"在安卓与IOS的兼容性问题（在IOS只能拍照，不能选相册）
+        /*var ua = navigator.userAgent.toLowerCase();
+//        //获取浏览器的userAgent,并转化为小写——注：userAgent是用户可以修改的
+        var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+//        //判断是否是苹果手机，是则是true
+        if (isIos) {
+            $(".imgFileBtn").removeAttr("capture");
+        }
+        var len = 0;
+        //input改变的时候，进行获取他的路径
+        $(".imgFileBtn").change(function () {//input的id
+//            //调用函数调取图片地址
+            len += this.files.length;
+            if(len<=9){
+                var objUrl = getObjectURL(this.files);
+//            //所得到的值为一个数组
+//            console.log(this.files)
+                for (var i = 0; i < objUrl.length; i++) {
+//                //创建元素把路径显示到页面
+//                    $('.camera').before($("<li class='cat_img'><img class='cut_box_img' src="+ u +"><img class='del_img_btn' src='../idleImg/del_img_btn.png'></li>"));
+                }
+            }else {
+                len -= this.files.length;
+                console.log('不可以超过9张')
+
+            }
+        });
+        //获取input file的文件地址
+        function getObjectURL(file) {
+//            //建立一个放url路径的数组
+            var urlArr = [];
+//            //file可能是个多选图片，是个数组，遍历数组
+            for (var i = 0; i < file.length; i++) {
+//                //先设定路径微空
+                var url = null;
+                if (window.createObjectURL != undefined) {//basic
+                    url = window.createObjectURL(file[i]);
+                } else if (window.URL != undefined) {//mozilla(firefox)兼容火狐
+                    url = window.URL.createObjectURL(file[i]);
+                } else if (window.webkitURL != undefined) {//webkit or chrome
+                    url = window.webkitURL.createObjectURL(file[i]);
+                }
+//                //每次遍历出来的地址全部加入到数组里面
+                urlArr.push(url);
+            }
+//            //返回整个数组
+            return urlArr;
+        }*/
+        //点击图片右上角的删除按钮
+        $('.c_header>ul').on('click', '.del_img_btn', function () {
+            $(this).parent().remove();
+            len -= 1;
+        });
+        //点击图片裁剪
+        $('.c_header>ul').on('click', '.cat_img', function () {
+
+        });
+        //设置裁剪区域的高
+        var w = $('.cut_box_con').width();
+        $('.cut_box_con').height(w);
+        //点击图片获取图片
+        $('.c_header>ul').on('click', '.cut_box_img', function () {
+            var u = $(this).attr('src');
+            console.log(u)
+        });
+        //发布
+        $('.c_fabu_btn>div').click(function () {
+            window.location.href = './shareWx.html';
+        })
+
+        //分类
+        url();
+        function url() {
+            if(window.location.href.indexOf('?')==-1){
+                $('#title').show();
+                return;
+            }
+            $('#title').hide();
+            var a = [];
+            var arr = window.location.href.split('?')[1].split('&');
+            for(var i=0;i<arr.length;i++){
+                a.push(arr[i].split('=')[1]);
+            }
+            var s= a.join('-');
+            $('#feilei_box').text(s);
+        }
+        $('#menu').on('click',function () {
+            window.location.href = 'menu/menuFabu.html';
+        });
+
+    })
+</script>
+</html>

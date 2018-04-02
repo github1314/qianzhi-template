@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>结算</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <script src="../../js/iscroll.js"></script>
+    <script src="../../js/isScroll.js"></script>
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+
+        #wrapper {
+            position: absolute;
+            left: 0;
+            top: 1.877rem;
+            bottom: 2.091rem;
+            width: 100%;
+        }
+
+        .footer {
+            width: 100%;
+            height: 2.091rem;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: flex;
+        }
+
+        .footer > div:nth-of-type(1) {
+            flex-grow: 1;
+            padding-top: 0.1rem;
+            padding-right: 0.491rem;
+            border-top: 1px solid #e5e5e5;
+            background: #fff;
+        }
+
+        .footer > div:nth-of-type(1) > p {
+            text-align: right;
+            font-weight: bold;
+
+        }
+
+        .footer > div:nth-of-type(1) > p:nth-of-type(1) {
+            font-size: 0.64rem;
+            color: #f33;
+        }
+
+        .footer > div:nth-of-type(1) > p:nth-of-type(2) {
+            font-size: 0.5rem;
+            color: #666;
+        }
+
+        .footer > div:nth-of-type(2) {
+            width: 4.672rem;
+            background-color: #ff3333;
+            color: #fff;
+            font-size: 0.6rem;
+            text-align: center;
+            line-height: 2.091rem;
+        }
+
+        .paymentOrder_h {
+            background: #fff;
+            width: 100%;
+            padding: 0.853rem 0 1.027rem 1.792rem;
+            position: relative;
+        }
+
+        .paymentOrder_h > i {
+            position: absolute;
+            top: 38%;
+            right: 0.64rem;
+        }
+
+        .paymentOrder_h > img {
+            position: absolute;
+            top: 38%;
+            left: 0.64rem;
+            /*width: 0.811rem;*/
+            height: 0.811rem;
+        }
+
+        .paymentOrder_h .iconfont {
+            font-size: 0.6rem;
+        }
+
+        .paymentOrder_h > p:nth-of-type(1) {
+            font-size: 0.6rem;
+            color: #333;
+        }
+
+        .paymentOrder_h > p:nth-of-type(2) {
+            font-size: 0.5rem;
+            color: #333;
+        }
+
+        .paymentMode {
+            margin-top: 0.427rem;
+            background: #fff;
+            padding-top: 0.512rem;
+        }
+
+        .paymentMode > h4 {
+            font-size: 0.5rem;
+            color: #999;
+            padding-left: 0.64rem;
+        }
+
+        .paymentMode > div > div {
+            display: flex;
+            padding-top: 0.51rem;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(1) {
+            width: 2.3rem;
+            padding-left: 0.64rem;
+            padding-right: 0.341rem;
+
+        }
+
+        .paymentMode > div > div > div:nth-of-type(1) > img {
+            width: 100%;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) {
+            flex-grow: 1;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid #e5e5e5;
+            position: relative;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) > p:nth-of-type(1) {
+            font-size: 0.6rem;
+            color: #333;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) > p:nth-of-type(2) {
+            font-size: 0.5rem;
+            color: #999;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) > div {
+            width: 0.853rem;
+            height: 0.853rem;
+            border-radius: 50%;
+            border: solid 1px #999999;
+            position: absolute;
+            top: 20%;
+            right: 0.64rem;
+            /*background-size: ;*/
+        }
+        .paymentMode > div > div:nth-of-type(1) > div:nth-of-type(2) > div {
+            border: none;
+            background: url("../../idleImg/payment/success.png") no-repeat 50% 50%;
+            background-size: 100%;
+        }
+        .paymentMsg{
+            padding: 0.512rem 0.64rem;
+            background: #fff;
+            margin-top: 0.427rem;
+        }
+        .paymentMsg>h4{
+            font-size:0.5rem;
+            color: #999;
+        }
+        .paymentMsg>div{
+            padding: 0.45rem 0;
+            position: relative;
+        }
+        .paymentMsg>div>p{
+            font-size:0.6rem ;
+            color: #333;
+            padding-left: 0.5rem;
+        }
+        .paymentMsg>div:nth-of-type(1)>div{
+            width: 0.256rem;
+            height: 0.256rem;
+            background-color: #ff6666;
+            position: absolute;
+            top:40%;
+            left:0;
+
+        }
+        .shopDetail{
+            padding: 0.45rem 0;
+            display: flex;
+            border-top:1px solid #e5e5e5 ;
+            border-bottom:1px solid #e5e5e5 ;
+        }
+        .shopDetail>div:nth-of-type(1){
+            width: 3.84rem;
+        }
+        .shopDetail>div:nth-of-type(1)>img{
+            width: 100%;
+        }
+        .shopDetail>div:nth-of-type(2){
+            flex-grow: 1;
+            padding-left: 0.513rem;
+            display: flex;
+            position: relative;
+        }
+        .shopDetail>div:nth-of-type(2)>a:nth-of-type(1){
+            position: absolute;
+            left:0.513rem;
+            bottom:0;
+            font-size:0.6rem;
+            color: #333;
+        }
+        .shopDetail>div:nth-of-type(2)>a:nth-of-type(2){
+            position: absolute;
+            right:0;
+            bottom:0;
+            font-size:0.6rem;
+            color: #666;
+        }
+        .paymentMsg>p{
+            text-align: right;
+            font-size:0.6rem;
+            padding: 0.3rem 0;
+        }
+        .i_box{
+            height: 100%;
+            background-color: #e5e5e5;
+            border-radius: 0.171rem;
+            overflow: hidden;
+
+        }
+        .i_box>input{
+            background: none;
+            width: 100%;
+            text-indent: 0.6rem;
+            border: none;
+            outline: none;
+        }
+        .p_box{
+            border-top: 1px solid #e5e5e5;
+            margin-top: 0.55rem;
+        }
+        .p_box>div>a:nth-of-type(1){
+            float: left;
+            font-size:0.5rem;
+            color: #999;
+        }
+        .p_box>div>a:nth-of-type(2){
+            float: right;
+            font-size:0.6rem ;
+            color: #999;
+        }
+        .p_box>div{
+            padding-top: 0.35rem;
+
+        }
+    </style>
+</head>
+<body onload="loaded()">
+<div class="header">
+    <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+    <span>结算</span>
+</div>
+<div id="wrapper">
+    <div>
+        <div class="paymentOrder_h">
+            <p>
+                <span>售后地址：</span>
+                <span>王小明 12345678987</span>
+            </p>
+            <p>河南省郑州市郑东新区龙子湖校区学府广场B座1205</p>
+            <i class="iconfont icon-youjiantou-01"></i>
+            <img src="../../idleImg/shopDetailImg/adress.png" alt="">
+        </div>
+        <div class="paymentMode">
+            <h4>支付方式</h4>
+            <div>
+                <div>
+                    <div>
+                        <img src="../../idleImg/payment/wx.png" alt="">
+                    </div>
+                    <div class="wx">
+                        <p>微信支付</p>
+                        <p>推荐已在微信中绑定银行卡的用户使用</p>
+                        <div class="paymentMode_btn"></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="../../idleImg/payment/zfb.png" alt="">
+                    </div>
+                    <div style="border: none;" class="zfb">
+                        <p>支付宝</p>
+                        <p>安全快捷，可支持银行卡支付</p>
+                        <div class="paymentMode_btn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="paymentMsg">
+            <h4>订单信息</h4>
+            <div>
+                <p>从河南郑州发货</p>
+                <div></div>
+            </div>
+            <div class="shopDetail">
+                <div>
+                    <img src="../../idleImg/zhanweitu.jpg" alt="">
+                </div>
+                <div>
+                    <p>日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                    <a href="#">¥79</a>
+                    <a href="#">x1</a>
+                </div>
+            </div>
+            <p>
+                <span>运费：</span>
+                <span>¥10.00</span>
+            </p>
+            <p>
+                <span>小计：</span>
+                <span style="color: #f33;">¥89.00</span>
+            </p>
+            <div class="i_box">
+                <input type="text" placeholder="买家留言200字内(选填)">
+            </div>
+            <div class="p_box" style="padding-bottom: 0;">
+                <div class="clearFix">
+                    <a href="#">商品总额：</a>
+                    <a href="#">¥79.00</a>
+                </div>
+                <div class="clearFix">
+                    <a href="#">运      费：</a>
+                    <a href="#">¥10.00</a>
+                </div>
+                <div class="clearFix">
+                    <a href="#">订单总计：</a>
+                    <a style="color: #f33;" href="#">¥89.00</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div>
+        <p>
+            <span>总计：</span>
+            <span>¥89.00</span>
+        </p>
+        <p>（含运费10.00）</p>
+    </div>
+    <div>
+        <span>支付订单</span>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        var index = 1;
+        $('.wx>.paymentMode_btn').on('click', function () {
+            index = 1;
+            $(this).css({
+                'background': 'url("../../idleImg/payment/success.png") no-repeat 50% 50%',
+                'background-size': '100%',
+                'border': '0'
+            });
+            $('.zfb>.paymentMode_btn').css({
+                'background': 'none',
+                'background-size': '100%',
+                'border': 'solid 1px #999999'
+            });
+        });
+        $('.zfb>.paymentMode_btn').on('click', function () {
+            index = 2;
+            $(this).css({
+                'background': 'url("../../idleImg/payment/success.png") no-repeat 50% 50%',
+                'background-size': '100%',
+                'border': '0'
+            });
+            $('.wx>.paymentMode_btn').css({
+                'background': 'none',
+                'background-size': '100%',
+                'border': 'solid 1px #999999'
+            });
+        });
+
+    });
+</script>
+</html>

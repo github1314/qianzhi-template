@@ -1,0 +1,22 @@
+.header{
+    width: 100%;
+    height:1.877rem;
+    line-height:1.877rem;
+    text-align: center;
+    position: absolute;
+    left:0;
+    top:0;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.header>i{
+    position: absolute;
+    left:0.64rem;
+}
+.header .iconfont{
+    font-size:0.7rem;
+}
+.header span{
+    font-size:0.73rem;
+    color: #333;
+}

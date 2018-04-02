@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>查看贷款去向</title>
+
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <script src="../../js/iscroll.js"></script>
+    <script src="../../js/isScroll.js"></script>
+    <style>
+        body{
+            background: #F5F5F5;
+        }
+        #wrapper{
+            width: 100%;
+            position: absolute;
+            top:1.877rem;
+            bottom: 2.091rem;
+            overflow: hidden;
+        }
+        .c_header{
+            height:3.755rem;
+            line-height:3.755rem;
+            background: #fff;
+            background: url("../../idleImg/orderDetailImg/fahuo_bac.png") no-repeat 50% 50%;
+            background-size: 100%;
+
+        }
+        .c_header>span{
+            font-size:0.7rem;
+            color: #fff;
+            margin-left: 1.515rem;
+        }
+        .msgBox{
+            width: 100%;
+            height: 1.877rem;
+            background-color: #ffffff;
+            padding: 0 0.64rem;
+        }
+        .msgBox>div:nth-of-type(1){
+            float: left;
+            height:100%;
+            line-height: 1.877rem;
+            padding-left: 1.429rem;
+            position: relative;
+            font-size:0.5rem;
+        }
+        .msgBox>div:nth-of-type(1)>img{
+            width: 0.853rem;
+            height: 0.853rem;
+            position: absolute;
+            left:0;
+            top:0.45rem;
+            border-radius: 50%;
+        }
+        .msgBox>div:nth-of-type(2){
+            float: right;
+            height:100%;
+            line-height: 1.877rem;
+            padding-left: 1.303rem;
+            position: relative;
+        }
+        .msgBox>div:nth-of-type(2)>img{
+            width: 0.853rem;
+            height: 0.853rem;
+            position: absolute;
+            left:0;
+            top:0.45rem;
+            border-radius: 50%;
+        }
+        .msgBox>div:nth-of-type(2)>.iconfont{
+            font-size:0.55rem;
+        }
+        .msgDetail{
+            margin-top: 0.427rem;
+            background: #fff;
+            padding: 0.14rem 0.661rem 0.811rem 0.661rem;
+            position: relative;
+        }
+        .msgDetail>p{
+            font-size:0.5rem;
+            color: #333;
+            margin-top: 0.4rem;
+        }
+        .shopMsg{
+            width: 100%;
+            /*height: 7.979rem;*/
+            background-color: #ffffff;
+            margin-top: 0.427rem;
+            padding:0 0.917rem 0 0.64rem;
+        }
+        .shopMsg_h{
+            width: 100%;
+            height:1.536rem;
+            line-height:1.536rem;
+            color: #999;
+            font-size:0.5rem;
+        }
+        .shopMsg_c{
+            padding: 0.512rem 0;
+            display: flex;
+            border-top:1px solid #e5e5e5 ;
+            border-bottom:1px solid #e5e5e5 ;
+        }
+        .shopMsg_c>div:nth-of-type(1){
+            width: 35%;
+
+        }
+        .shopMsg_c>div:nth-of-type(1)>img{
+            width: 100%;
+            height:100%;
+            border-radius: 0.2rem;
+        }
+        .shopMsg_c>div:nth-of-type(2){
+            flex-grow: 1;
+            padding-left: 0.512rem;
+            position: relative;
+        }
+        .shopMsg_c>div:nth-of-type(2)>span{
+            position: absolute;
+            left: 0.712em;
+            bottom:0;
+            font-size:0.64rem;
+            color: #333;
+        }
+        .shopMsg_p{
+            width: 100%;
+            height: 1.536rem;
+            line-height: 1.536rem;
+        }
+        .shopMsg_p>p{
+            text-align: right;
+            font-size:0.5rem;
+            color: #999;
+        }
+        .codeTime{
+            padding: 0.64rem;
+            background: #fff;
+            margin-top: 0.427rem;
+            position: relative;
+        }
+        .clone{
+            display: block;
+            position: absolute;
+            top:0.448rem;
+            right:0.64rem;
+            width:auto;
+            height: 0.853rem;
+            line-height: 0.453rem;
+            text-align: center;
+            border-radius: 0.427rem;
+            border: solid 1px #cccccc;
+            padding: 0.192rem 0.448rem;
+            font-size:0.5rem;
+            color: #999;
+        }
+        .footer{
+            width: 100%;
+            height: 2.091rem;
+            background-color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            left:0;
+            display: flex;
+        }
+        .footer>div:nth-of-type(1){
+            flex-grow: 1;
+            line-height: 2.091rem;
+            text-align: right;
+            font-size:0.64rem;
+            color: #f33;
+            padding-right: 0.619rem;
+        }
+        .footer>div:nth-of-type(2){
+            width: 5.547rem;
+            height: 2.091rem;
+            background-color: #ff3333;
+            line-height: 2.091rem;
+            color: #fff;
+            font-size:0.64rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="loaded()">
+<div class="header">
+    <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+    <span>订单详情</span>
+</div>
+<div id="wrapper">
+    <div>
+        <div class="c_header">
+            <span>交易成功</span>
+        </div>
+        <div class="msgBox clearFix">
+            <div>
+                <span>18505124612</span>
+                <img src="../../idleImg/zhanweitu.jpg" alt="">
+            </div>
+            <div>
+                <span>联系买家</span>
+                <i class="iconfont icon-youjiantou-01"></i>
+                <img src="../../idleImg/orderDetailImg/msg.png" alt="">
+            </div>
+        </div>
+        <div class="msgDetail">
+            <p>收货人：王小明</p>
+            <p>联系电话：18505124612</p>
+            <p>收货地址：河南省郑州市金水区东明路与红专路交叉口局月初小区3号楼</p>
+            <p>商家备注：无</p>
+            <a href="#" class="clone">复制</a>
+        </div>
+        <div class="shopMsg">
+            <div class="shopMsg_h">
+                <span>商品信息</span>
+            </div>
+            <div class="shopMsg_c">
+                <div>
+                    <img src="../../idleImg/zhanweitu.jpg" alt="">
+                </div>
+                <div>
+                    <p style="font-size:0.55rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                    <span>¥79</span>
+                </div>
+            </div>
+            <div class="shopMsg_p">
+                <p>含运费：<span style="margin-right: 0.64rem;">¥10.00</span>总计：<span style="font-size: 0.64rem;color: #f33;">¥89.00</span></p>
+            </div>
+        </div>
+        <div class="codeTime">
+            <p style="margin-bottom: 0.3rem;">订单编号：15435413484513154351245</p>
+            <p>下单时间：2018-03-20 15:02:23</p>
+            <a href="#" class="clone">复制</a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div>
+        <p>总计：¥89.00</p>
+    </div>
+    <div>
+        <span>查看贷款去向</span>
+    </div>
+</div>
+</body>
+</html>

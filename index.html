@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="font-x/iconfont.css">
+    <link rel="stylesheet" href="css/swiper-4.2.0.min.css">
+    <script src="js/swiper-4.2.0.min.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/isScroll.js"></script>
+    <title>默认列表</title>
+    <style>
+        .header {
+            width: 100%;
+            height: 1.877rem;
+            line-height: 1.877rem;
+            text-align: center;
+            position: relative;
+            font-size: 0.7rem;
+        }
+
+        .header > i {
+            position: absolute;
+            left: 0.64rem;
+        }
+
+        .header .iconfont {
+            font-size: 0.75rem;
+        }
+
+        .content {
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 5.631rem;
+            left: 0;
+            bottom:0;
+        }
+        .c_header {
+            width: 100%;
+            height: 1.877rem;
+            padding: 0.256rem 0;
+            background: url("idleImg/c_header_1.png") no-repeat center center;
+            background-size: 100% 100%;
+        }
+
+        .c_header {
+            display: flex;
+        }
+
+        .c_header > div:nth-child(1) {
+            width: 2.345rem;
+            line-height: 1.7rem;
+            text-align: center;
+        }
+
+        .c_header > div:nth-child(1) > img {
+            width: 0.853rem;
+            height: 0.64rem;
+
+        }
+
+        .c_header > div:nth-child(3) {
+            width: 2.345rem;
+            line-height: 1.7rem;
+            text-align: center;
+        }
+
+        .c_header > div:nth-child(3) > img {
+            width: 0.683rem;
+            height: 0.768rem;
+        }
+
+        .c_header > div:nth-child(2) {
+            flex-grow: 1;
+            height: 1.365rem;
+            line-height: 1.365rem;
+            background: url("idleImg/c_header_3.png") no-repeat 0.512rem 50% rgba(255, 255, 255, 0.4);
+            border-radius: 0.8rem;
+            border: solid 0.025rem rgba(255, 255, 255, 0.7);
+            background-size: 0.725rem 0.725rem;
+        }
+
+        .c_header > div:nth-child(2) > input {
+            margin-left: 1.707rem;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+            outline: none;
+
+        }
+
+        .c_tab {
+            width: 100%;
+            height: 1.877rem;
+            display: flex;
+        }
+
+        .c_tab > div {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 0.6rem;
+            color: #999999;
+        }
+
+        .c_tab > div > a {
+            display: inline-block;
+            height: 100%;
+            line-height: 1.877rem;
+
+        }
+
+        .color_font {
+            font-weight: bolder;
+            color: #ff3366;
+            border-bottom: 0.13rem solid #ff3366;
+        }
+
+        .c_recommend_list {
+            background: #F5F5F5;
+        }
+
+        .list > li {
+            background: #fff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.427rem;
+            box-sizing: border-box;
+        }
+
+        .c_recommend_list_header {
+            display: flex;
+            padding-top: 0.661rem;
+        }
+
+        .c_recommend_list_header > div:nth-child(1) {
+            padding-left: 0.64rem;
+
+        }
+
+        .c_recommend_list_header > div:nth-child(2) {
+            flex-grow: 1;
+            padding-left: 0.3rem;
+        }
+
+        .c_recommend_list_header > div:nth-child(1) > img {
+            width: 1.365rem;
+            height: 1.365rem;
+            border-radius: 50%;
+        }
+
+        .c_recommend_list_header > div:nth-child(2) > p:nth-child(1) {
+            font-size: 0.5rem;
+            color: #333;
+        }
+
+        .c_recommend_list_header > div:nth-child(2) > p:nth-child(2) {
+            font-size: 0.5rem;
+            color: #999;
+        }
+
+        .c_recommend_list_img {
+            width: 100%;
+            height: 5.547rem;
+
+            /*height:5.653rem;*/
+            margin-top: 0.683rem;
+            padding-left: 0.64rem;
+            /*overflow: auto;*/
+
+            overflow-x:auto;
+            overflow-y:hidden;
+        }
+        .c_recommend_list_img::-webkit-scrollbar{
+            display: none;
+        }
+        .c_recommend_list_img > ul {
+            /*display: flex;*/
+            /*width: 100%;*/
+            width: 51.4rem;
+            height: 5.547rem;
+
+            /*float:left;*/
+        }
+        /**/
+
+        .c_recommend_list_img > ul > li {
+            width: 5.547rem;
+            height: 5.547rem;
+            /*background-color: #ff464f;*/
+            box-shadow: 0.017rem 0.038rem 0.085rem 0rem rgba(0, 0, 0, 0.16);
+            border-radius: 0.171rem;
+            margin-right: 0.128rem;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .c_recommend_list_img > ul > li > img {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .c_recommend_list_detail {
+            padding: 0.512rem 0.661rem;
+        }
+
+        .c_recommend_list_detail > p {
+            font-size: 0.597rem;
+            color: #333;
+        }
+
+        .c_recommend_list_price {
+            padding: 0 0.64rem 0 0.64rem;
+        }
+
+        .c_recommend_list_price > div:nth-child(1) {
+            float: left;
+        }
+
+        .c_recommend_list_price > div:nth-child(2) {
+            float: right;
+            height: 100%;
+            line-height: 1.2rem;
+        }
+
+        .c_recommend_list_price > div:nth-child(1) > span {
+            font-size: 0.768rem;
+            color: #ff3333;
+        }
+
+        .c_recommend_list_price > div:nth-child(2) > img {
+            width: 0.512rem;
+            height: 0.512rem;
+        }
+
+        .c_recommend_list_price > div:nth-child(2) > span {
+            font-size: 0.512rem;
+            color: #333333;
+        }
+
+        .fabu_btn {
+            width: 2.347rem;
+            height: 2.347rem;
+            position: fixed;
+            right: 0.427rem;
+            bottom: 6.536rem;
+            z-index: 10000;
+        }
+
+        .c_city_list {
+            display: none;
+
+            width:16rem;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body onload="loaded()">
+<div style="background: #fff;z-index: 1000;width: 100%;position: absolute;left: 0;top: 0;">
+    <div class="header">
+        <i class="iconfont icon-zuojiantou back_btn"></i>
+        <span>闲置</span>
+    </div>
+    <div class="c_header">
+        <div class="menu_btn">
+            <img src="idleImg/c_header_2.png" alt="">
+        </div>
+        <div>
+            <input id="search" type="text" placeholder="闲置能换钱" >
+        </div>
+        <div class="my_btn">
+            <img src="idleImg/c_header_4.png" alt="">
+        </div>
+    </div>
+    <div class="c_tab">
+        <div>
+            <a href="#" class="color_font recommend">推荐</a>
+        </div>
+        <div>
+            <a href="#" class="city">同城</a>
+        </div>
+    </div>
+</div>
+<div class="content" id="wrapper">
+    <div>
+        <div class="c_recommend_list">
+            <ul class="list">
+                <li>
+                    <div class="c_recommend_list_header">
+                        <div>
+                            <img src="idleImg/zhanweitu.jpg" alt="">
+
+                        </div>
+                        <div>
+                            <p>wang123456...</p>
+                            <p>郑州市金水区 &nbsp;&nbsp;&nbsp;<span>一天前来过</span></p>
+                        </div>
+                    </div>
+                    <div class="c_recommend_list_img">
+                        <ul class="img_list clearFix">
+                            <li class="swiper-slide">
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="c_recommend_list_detail">
+                        <p>360智能摄像机1080P版 D606 小水滴 高清夜视 WIFI摄像头 双向通话 远程监控 哑白</p>
+                    </div>
+                    <div class="c_recommend_list_price clearFix">
+                        <div>
+                            <span>¥99</span>
+                            <s>¥199</s>
+                        </div>
+                        <div>
+                            <img src="idleImg/xing.png" alt="">
+                            <span>66</span>
+                            <img src="idleImg/idle_msg.png" alt="">
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="c_recommend_list_header">
+                        <div>
+                            <img src="idleImg/zhanweitu.jpg" alt="">
+
+                        </div>
+                        <div>
+                            <p>wang123456...</p>
+                            <p>郑州市金水区 &nbsp;&nbsp;&nbsp;<span>一天前来过</span></p>
+                        </div>
+                    </div>
+                    <div class="c_recommend_list_img">
+                        <ul>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="c_recommend_list_detail">
+                        <p>360智能摄像机1080P版 D606 小水滴 高清夜视 WIFI摄像头 双向通话 远程监控 哑白</p>
+                    </div>
+                    <div class="c_recommend_list_price clearFix">
+                        <div>
+                            <span>¥99</span>
+                            <s>¥199</s>
+                        </div>
+                        <div>
+                            <img src="idleImg/xing.png" alt="">
+                            <span>66</span>
+                            <img src="idleImg/idle_msg.png" alt="">
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="c_recommend_list_header">
+                        <div>
+                            <img src="idleImg/zhanweitu.jpg" alt="">
+
+                        </div>
+                        <div>
+                            <p>wang123456...</p>
+                            <p>郑州市金水区 &nbsp;&nbsp;&nbsp;<span>一天前来过</span></p>
+                        </div>
+                    </div>
+                    <div class="c_recommend_list_img">
+                        <ul>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div class="c_recommend_list_detail">
+                        <p>360智能摄像机1080P版 D606 小水滴 高清夜视 WIFI摄像头 双向通话 远程监控 哑白</p>
+                    </div>
+                    <div class="c_recommend_list_price clearFix">
+                        <div>
+                            <span>¥99</span>
+                            <s>¥199</s>
+                        </div>
+                        <div>
+                            <img src="idleImg/xing.png" alt="">
+                            <span>66</span>
+                            <img src="idleImg/idle_msg.png" alt="">
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="c_recommend_list_header">
+                        <div>
+                            <img src="idleImg/zhanweitu.jpg" alt="">
+
+                        </div>
+                        <div>
+                            <p>wang123456...</p>
+                            <p>郑州市金水区 &nbsp;&nbsp;&nbsp;<span>一天前来过</span></p>
+                        </div>
+                    </div>
+                    <div class="c_recommend_list_img">
+                        <ul>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="c_recommend_list_detail">
+                        <p>360智能摄像机1080P版 D606 小水滴 高清夜视 WIFI摄像头 双向通话 远程监控 哑白</p>
+                    </div>
+                    <div class="c_recommend_list_price clearFix">
+                        <div>
+                            <span>¥99</span>
+                            <s>¥199</s>
+                        </div>
+                        <div>
+                            <img src="idleImg/xing.png" alt="">
+                            <span>66</span>
+                            <img src="idleImg/idle_msg.png" alt="">
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="c_city_list">
+            <ul class="list">
+                <li>
+                    <div class="c_recommend_list_header">
+                        <div>
+                            <img src="idleImg/zhanweitu.jpg" alt="">
+
+                        </div>
+                        <div>
+                            <p>wang123456...</p>
+                            <p>郑州市金水区 &nbsp;&nbsp;&nbsp;<span>一天前来过</span></p>
+                        </div>
+                    </div>
+                    <div class="c_recommend_list_img">
+                        <ul class="img_list">
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                            <li>
+                                <img src="idleImg/zhanweitu.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="c_recommend_list_detail">
+                        <p>360智能摄像机1080P版 D606 小水滴 高清夜视 WIFI摄像头 双向通话 远程监控 哑白</p>
+                    </div>
+                    <div class="c_recommend_list_price clearFix">
+                        <div>
+                            <span>¥99</span>
+                            <s>¥199</s>
+                        </div>
+                        <div>
+                            <img src="idleImg/xing.png" alt="">
+                            <span>66</span>
+                            <img src="idleImg/idle_msg.png" alt="">
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<img class="fabu_btn" src="idleImg/fabu_btn.png" alt="">
+
+</body>
+<!--<script src="js/zepto.min.js"></script>-->
+<script>
+    $(function () {
+
+
+
+        $('.back_btn').click(function () {
+//            window.history.go(-1);
+
+            //待定
+
+
+
+
+        });
+        $('.recommend').click(function () {
+            $('.city').removeClass('color_font');
+            $(this).addClass('color_font');
+        });
+        $('.city').click(function () {
+            $('.recommend').removeClass('color_font');
+            $(this).addClass('color_font');
+        });
+        $('.recommend').click(function () {
+            $('.c_recommend_list').show();
+            $('.c_city_list').hide();
+        });
+        $('.city').click(function () {
+            $('.c_city_list').show();
+            $('.c_recommend_list').hide();
+        });
+        $('.fabu_btn').click(function () {
+            window.location.href = 'pages/release.html'
+        });
+        $('.my_btn').click(function () {
+            window.location.href = './pages/myIdle.html';
+        });
+        $('#search').focus(function () {
+            window.location.href = './pages/search/search.html';
+        });
+        $('.c_recommend_list_detail').click(function () {
+            window.location.href = './pages/detail/detail.html';
+        });
+        $('.menu_btn').click(function () {
+            window.location.href = 'pages/menu/menuIndex.html';
+        });
+    });
+</script>
+</html>

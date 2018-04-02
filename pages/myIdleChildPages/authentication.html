@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>实名认证</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <style>
+        body{
+            background: #F5F5F5;
+        }
+        .form_list{
+            padding-left: 0.64rem;
+        }
+        .containner{
+            width: 100%;
+            position: absolute;
+            top:1.877rem;
+            bottom: 0;
+            left:0;
+            margin-top: 0.427rem;
+            background: #F5F5F5;
+        }
+        .form_list{
+            background: #fff;
+        }
+        .form_list>div{
+            height:1.898rem;
+            line-height:1.898rem;
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+            position: relative;
+        }
+        .form_list>div>span{
+            display: block;
+            width: 3rem;
+            font-size:0.6rem;
+            color: #333;
+        }
+        .form_list>div>input{
+            flex-grow: 1;
+            border: none;
+            outline: none;
+        }
+        .form_list>div>div{
+            width: 5.12rem;
+            height: 1.365rem;
+            line-height: 1.365rem;
+            border-radius: 0.683rem;
+            border:1px solid #ff6666;
+            position: absolute;
+            right:0.64rem;
+            top:0.22rem;
+
+            text-align: center;
+        }
+        .form_list>div>div{
+            font-size:0.55rem;
+            color: #f66;
+        }
+        .ok_btn{
+            width: 14.72rem;
+            height: 1.877rem;
+            line-height: 1.877rem;
+            background-color: #ff6666;
+            border-radius: 0.939rem;
+            text-align: center;
+            color: #fff;
+            font-size:0.7rem;
+            margin: 1.877rem auto;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+    <span>实名认证</span>
+</div>
+<div class="containner">
+    <div class="form_list">
+        <div>
+            <span>姓名</span>
+            <input id="username" type="text" placeholder="请输入真实姓名">
+        </div>
+        <div>
+            <span>身份证</span>
+            <input id="provinceCode" type="text" placeholder="请输入身份证号码">
+        </div>
+        <div>
+            <span>手机号</span>
+            <input id="tel" type="text" placeholder="请输入手机号码">
+        </div>
+        <div>
+            <span>验证码</span>
+            <input id="code" type="text" placeholder="请输入短信验证码">
+            <div id="verificationCode">
+                <span>获取验证码</span>
+            </div>
+        </div>
+    </div>
+    <div class="ok_btn">
+        <span>认证</span>
+    </div>
+</div>
+
+</body>
+<script src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+    $(function () {
+        //验证码秒数封装
+        var index = 60,t;
+        function times() {
+            t = setInterval(function () {
+                if(index>0){
+                    index--;
+                    $('#verificationCode>span').html(index);
+                }else if(index<1){
+                    $('#verificationCode>span').html('重新获取');
+                    clearInterval(t);
+                    index = 60;
+                }
+            },1000)
+        }
+        //验证码定时器
+        $('#verificationCode').click(function () {
+            clearInterval(t);
+            $('#verificationCode>span').html(index);
+            times();
+        })
+
+        //所需要传向后台的数据
+        var $name = $('#username').val();
+        var $provinceCode = $('#provinceCode').val();
+        var $tel = $('#tel').val();
+        var $code = $('#code').val();
+
+
+        $('.ok_btn').click(function () {
+            //数据请求
+            /*$.ajax({
+                url:'',
+                type:'post',
+                dataType:'json',
+                success:function (data) {
+
+                },
+                error:function (err) {
+
+                }
+            })*/
+            window.location.href = '../myIdle.html';
+        })
+
+    })
+</script>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>我卖出的</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <link rel="stylesheet" href="../../css/mescroll.min.css">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <script src="../../js/iscroll.js"></script>
+    <script src="../../js/isScroll.js"></script>
+    <script src="../../js/mescroll.min.js"></script>
+
+    <style>
+        body{
+            background: #F5F5F5;
+        }
+        #wrapper{
+            position: absolute;
+            top:1.877rem;
+            left:0;
+            width: 100%;
+            bottom:0;
+            /*background: #fff;*/
+            overflow: hidden;
+        }
+        .orderCode{
+            width: 100%;
+            height: 1.536rem;
+            line-height: 1.536rem;
+            background-color: #ffffff;
+            padding: 0 0.619rem;
+        }
+        .orderCode>a:nth-child(1){
+            float: left;
+            font-size:0.5rem;
+        }
+        .orderCode>a:nth-child(2){
+            float: right;
+            color: #f66;
+            font-size:0.5rem;
+        }
+        .orderDetail{
+            padding: 0.512rem 0.64rem 0 0.64rem;
+            display: flex;
+            background: #fff;
+            /*height:100px;*/
+        }
+        .orderDetail>div:nth-child(1){
+            width: 35%;
+            overflow: hidden;
+        }
+        .orderDetail>div:nth-child(1)>img{
+            width: 100%;
+            border-radius: 0.2rem ;
+
+        }
+        .orderDetail>div:nth-child(2){
+            flex-grow: 1;
+            padding-left: 0.533rem;
+            position: relative;
+        }
+        .orderDetail>div:nth-child(2)>a{
+            position: absolute;
+            left:0.533rem;
+            bottom: 0.1rem;
+            font-size:0.76rem;
+            color: #f66;
+        }
+        .orderPrice{
+            width: 100%;
+            height: 2.091rem;
+            background-color: #ffffff;
+            padding: 0.363rem 0.661rem;
+            line-height: 1.4rem;
+
+        }
+        .orderPrice>a{
+            float: right;
+            display: block;
+            color: #f66;
+            /*width: 2.56rem;*/
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 0.683rem;
+            border: solid 1px #ff6666;
+            text-align: center;
+            line-height: 1.4rem;
+            padding: 0 0.5rem;
+        }
+        .mescroll ul li{
+            margin-top: 0.367rem;
+        }
+        .mescroll{
+            height:auto;
+        }
+    </style>
+</head>
+<body onload="loaded()">
+<div class="header" style="position: absolute;top: 0;left: 0;">
+    <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+    <span>我卖出的</span>
+</div>
+<div id="wrapper">
+    <div class="mescroll" id="mescroll">
+        <ul>
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <!--<a href="#">待发货</a>-->
+                    <!--<a href="#">已发货</a>-->
+                    <a href="#">已完成</a>
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <!--<a href="#" class="f">发货</a>-->
+                    <!--<a href="#" class="w">查看物流</a>-->
+                    <a href="#" class="x">查看贷款去向</a>
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <a href="#">待发货</a>
+                    <!--<a href="#">已发货</a>-->
+                    <!--<a href="#">已完成</a>-->
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <a href="#" class="f">发货</a>
+                    <!--<a href="#" class="w">查看物流</a>-->
+                    <!--<a href="#" class="x">查看贷款去向</a>-->
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <!--<a href="#">待发货</a>-->
+                    <a href="#">已发货</a>
+                    <!--<a href="#">已完成</a>-->
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <!--<a href="#" class="f">发货</a>-->
+                    <a href="#" class="w">查看物流</a>
+                    <!--<a href="#" class="x">查看贷款去向</a>-->
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+
+
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <!--<a href="#">待发货</a>-->
+                    <!--<a href="#">已发货</a>-->
+                    <a href="#">已完成</a>
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <!--<a href="#" class="f">发货</a>-->
+                    <!--<a href="#" class="w">查看物流</a>-->
+                    <a href="#" class="x">查看贷款去向</a>
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <!--<a href="#">待发货</a>-->
+                    <!--<a href="#">已发货</a>-->
+                    <a href="#">已完成</a>
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <!--<a href="#" class="f">发货</a>-->
+                    <!--<a href="#" class="w">查看物流</a>-->
+                    <a href="#" class="x">查看贷款去向</a>
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <!--<a href="#">待发货</a>-->
+                    <!--<a href="#">已发货</a>-->
+                    <a href="#">已完成</a>
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <!--<a href="#" class="f">发货</a>-->
+                    <!--<a href="#" class="w">查看物流</a>-->
+                    <a href="#" class="x">查看贷款去向</a>
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+
+            <li>
+                <div class="orderCode">
+                    <a href="#">订单号：121365488952665522</a>
+                    <!--<a href="#">待发货</a>-->
+                    <!--<a href="#">已发货</a>-->
+                    <a href="#">已完成</a>
+                </div>
+                <div class="orderDetail">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p style="font-size:0.5rem;color: #333;">日韩新款帆布单肩包大容量购物袋休闲斜挎手提女包小清新百搭包包</p>
+                        <a href="#">¥79</a>
+                    </div>
+                </div>
+                <div class="orderPrice">
+                    <!--<a href="#" class="f">发货</a>-->
+                    <!--<a href="#" class="w">查看物流</a>-->
+                    <a href="#" class="x">查看贷款去向</a>
+                    <span style="float: right;font-size:0.512rem;color: #999;margin: 0 0.64rem;">总计：<span style="font-size:0.6rem;color: #f66;">¥89</span></span>
+                    <span style="font-size:0.512rem;color: #999;float: right;">含运费：¥10.00</span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+</body>
+<script src="../../js/mescroll_js.js"></script>
+<script>
+    $(function () {
+        $('.f').click(function () {
+            window.location.href = '../orderDetail/consignment.html';
+        });
+        $('.w').click(function () {
+            window.location.href = '../orderDetail/logistics.html';
+        });
+        $('.x').click(function () {
+            window.location.href = '../orderDetail/whereabouts.html';
+        });
+    })
+</script>
+</html>

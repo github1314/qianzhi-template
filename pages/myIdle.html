@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>我的闲置个人中心</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../font-x/iconfont.css">
+    <link rel="stylesheet" href="../css/headerStyle.css">
+    <script src="../js/jquery-1.8.2.min.js"></script>
+    <style>
+        body{
+            background: #F5F5F5;
+        }
+        .c_header{
+            padding: 1.067rem 0.64rem 1.088rem 0.597rem;
+            display: flex;
+            background-image: linear-gradient(-7deg,
+            #ff6a00 0%,
+            #ff3333 100%),
+            linear-gradient(
+                    #ffffff,
+                    #ffffff);
+            background-blend-mode: normal,
+            normal;
+            position: relative;
+        }
+        .c_header>div:nth-child(1){
+            width: 2.752rem;
+            height: 2.752rem;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .c_header>div:nth-child(1)>img{
+            width: 100%;
+            height: 100%;
+        }
+        .c_header>div:nth-child(2){
+            flex-grow: 1;
+            padding: 0.312rem 0.512rem;
+        }
+        .c_header>div:nth-child(2)>p:nth-child(1){
+            font-size: 0.768rem;
+            color: #ffffff;
+        }
+        .c_header>div:nth-child(2)>p:nth-child(2){
+            font-size: 0.64rem;
+            color: #ffffff;
+        }
+        .c_header>i{
+            position: absolute;
+            right:0.5rem;
+            top:40%;
+            color: #fff;
+        }
+        .c_header .iconfont{
+            font-size:0.8rem;
+            font-weight:bold;
+        }
+        .list_wraper{
+            padding-left: 0.619rem;
+            background: #fff;
+        }
+        .list{
+            background: #fff;
+            width: 100%;
+            height:1.877rem;
+            line-height:1.877rem;
+            /*padding-left: 0.64rem;*/
+            position: relative;
+        }
+        .list>img{
+            width: 0.853rem;
+            height:0.853rem;
+            position: absolute;
+            left:0;
+            top:0.5rem;
+        }
+        .list>span{
+            margin-left: 1.301rem;
+            font-size:0.6rem;
+            color: #333;
+        }
+        .list>i{
+            position: absolute;
+            right:0.683rem;
+            color: #999;
+        }
+        .list .iconfont{
+            font-size:0.65rem;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+    <span>我的闲置</span>
+</div>
+<div style="position: absolute;top: 1.877rem;bottom: 0;width: 100%;" id="wrapper">
+    <div class="containner">
+        <div class="c_header">
+            <div>
+                <img src="../idleImg/zhanweitu.jpg" alt="">
+            </div>
+            <div>
+                <p>王小明</p>
+                <p>虽然没赚到钱，没事常来转转</p>
+            </div>
+            <i class="iconfont icon-youjiantou-01" id="myIncome"></i>
+        </div>
+        <div class="list_wraper">
+            <div class="list" id="authentication">
+                <img src="../idleImg/myIdleImg/shiming.png" alt="">
+                <span>实名认证</span>
+                <i class="iconfont icon-youjiantou-01"></i>
+            </div>
+        </div>
+        <div class="list_wraper">
+            <div id="release" class="list" style="margin-top: 0.427rem;border-bottom:0.1px solid #e5e5e5;">
+                <img src="../idleImg/myIdleImg/myFabu.png" alt="">
+                <span>我发布的</span>
+                <i class="iconfont icon-youjiantou-01"></i>
+            </div>
+            <div id="sellOut" class="list" style="border-bottom:0.1px solid #e5e5e5; ">
+                <img src="../idleImg/myIdleImg/qiandai.png" alt="">
+                <span>我卖出的</span>
+                <i class="iconfont icon-youjiantou-01"></i>
+            </div>
+            <div id="toWant" class="list">
+                <img src="../idleImg/myIdleImg/myXiangyao.png" alt="">
+                <span>我想要的</span>
+                <i class="iconfont icon-youjiantou-01"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        //实名认证
+        $('#authentication').click(function () {
+            window.location.href = './myIdleChildPages/authentication.html';
+        });
+        //我发布的
+        $('#release').click(function () {
+            window.location.href = './myIdleChildPages/myRelease.html';
+        });
+        //我卖出的
+        $('#sellOut').click(function () {
+            window.location.href = './myIdleChildPages/mySellOut.html';
+        });
+        //我想要的
+        $('#toWant').click(function () {
+            window.location.href = './myIdleChildPages/myToWant.html';
+        });
+        //我的收入
+        $('#myIncome').click(function () {
+            window.location.href = './myIncome/myIncome.html';
+        })
+    })
+</script>
+</html>

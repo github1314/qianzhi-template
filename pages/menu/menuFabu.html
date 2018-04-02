@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>菜单-发布</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <script src="../../js/iscroll.js"></script>
+    <script>
+        // ref https://github.com/WICG/EventListenerOptions/pull/30
+        function isPassive() {
+            var supportsPassiveOption = false;
+            try {
+                addEventListener("test", null, Object.defineProperty({}, 'passive', {
+                    get: function () {
+                        supportsPassiveOption = true;
+                    }
+                }));
+            } catch(e) {}
+            return supportsPassiveOption;
+        }
+        //解决移动端android4.4+  ios 不能点击
+        function iScrollClick(){
+            if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+            if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+            if (/Silk/i.test(navigator.userAgent)) return false;
+            if (/Android/i.test(navigator.userAgent)) {
+                var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
+                return parseFloat(s[0]+s[3]) < 44 ? false : true
+            }
+        }
+
+
+        var myScroll;
+
+        function loaded () {
+            myScroll = new IScroll('#wrapperParent', {
+                click:iScrollClick(), //调用判断函数
+                bounceEasing: '',
+                bounceTime: 600
+            });
+            myScroll = new IScroll('#wrapperSon', {
+                click:iScrollClick(), //调用判断函数
+                bounceEasing: '',
+                bounceTime: 600
+            });
+            myScroll = new IScroll('#wrapperGrandson', {
+                click:iScrollClick(), //调用判断函数
+                bounceEasing: '',
+                bounceTime: 600
+            });
+        }
+        // function loaded () {
+        //     myScroll = new IScroll('#box', { bounceEasing: '', bounceTime: 600 });
+        // }
+
+
+
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+            capture: false,
+            passive: false
+        } : false);
+    </script>
+    <style>
+        body{
+            background: #F5F5F5;
+        }
+        .header>a{
+            position: absolute;
+            top: 5%;
+            right:0.64rem;
+            font-size:0.6rem;
+            color: #333;
+        }
+        #containner{
+            width: 100%;
+            position: absolute;
+            top:1.877rem;
+            bottom:0;
+            display: flex;
+        }
+        #containner>div{
+            width: 33.333333333333%;
+            height:100%;
+
+        }
+        #wrapperParent{
+            overflow: hidden;
+        }
+        #wrapperSon{
+            overflow: hidden;
+        }
+        #wrapperGrandson{
+            overflow: hidden;
+        }
+        #wrapperParent li{
+            height: 2.091rem;
+            line-height: 2.091rem;
+            text-align: center;
+            border-bottom:1px solid #CCCCCC ;
+
+        }
+        #wrapperParent ul{
+            background: #fff;
+        }
+        #wrapperSon ul{
+            background: #F2F5F9;
+        }
+        #wrapperSon li{
+            height: 2.091rem;
+            line-height: 2.091rem;
+            text-align: center;
+        }
+        #wrapperGrandson ul{
+            background: #EBEEF4;
+        }
+        #wrapperGrandson li{
+            height: 2.091rem;
+            line-height: 2.091rem;
+            text-align: center;
+        }
+        .parentActive{
+            background: #F2F5F9;
+            border-left: 3px solid #f33;
+            color: #f33;
+        }
+        .sonActive{
+            background: #EBEEF4;
+            color: #f33;
+        }
+        .grandsonActive{
+            color: #f33;
+        }
+    </style>
+</head>
+<body onload="loaded()">
+    <div class="header">
+        <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+        <span>分类</span>
+        <a href="#" id="ok">确认</a>
+    </div>
+    <div id="containner">
+        <div id="wrapperParent">
+            <ul>
+                <li class="parentActive">parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+                <li>parent</li>
+            </ul>
+        </div>
+        <div id="wrapperSon">
+            <ul>
+                <li class="sonActive">son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+                <li>son</li>
+            </ul>
+        </div>
+        <div id="wrapperGrandson">
+            <ul>
+                <li class="grandsonActive">grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+                <li>grandson</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        var parent = $('#wrapperParent li').eq(0).text(),
+            son = $('#wrapperSon li').eq(0).text(),
+            grandSon = $('#wrapperGrandson li').eq(0).text();
+        $('#wrapperParent').on('click','li',function () {
+            $(this).addClass('parentActive').siblings().removeClass('parentActive');
+            parent = $(this).text();
+        });
+        $('#wrapperSon').on('click','li',function () {
+            $(this).addClass('sonActive').siblings().removeClass('sonActive');
+            son = $(this).text();
+        });
+        $('#wrapperGrandson').on('click','li',function () {
+            $(this).addClass('grandsonActive').siblings().removeClass('grandsonActive');
+            grandSon = $(this).text();
+        });
+        $('#ok').on('click',function () {
+             window.location.href = "../release.html?parent="+parent+"&son="+son+"&grand="+grandSon+"";
+        });
+    })
+</script>
+</html>

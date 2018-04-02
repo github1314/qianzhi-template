@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>支付结果-失败</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <link rel="stylesheet" href="../../font/iconfont.css">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <style>
+        body{
+            background-color: #F5F5F5;
+        }
+        #wrapper{
+            width: 100%;
+            position: absolute;
+            top:1.877rem;
+            left:0;
+            bottom:1.963rem;
+        }
+        .footer{
+            width: 100%;
+            height:1.963rem;
+            position: absolute;
+            left:0;
+            bottom:0;
+            background-color: #ff3333;
+            text-align: center;
+            line-height: 1.963rem;
+            color: #fff;
+            font-size:0.597rem;
+        }
+        #wrapper>div>div:nth-of-type(1){
+            background: #fff;
+            padding-top: 1.365rem;
+            padding-bottom: 1.045rem;
+        }
+        #wrapper>div>div>p:nth-of-type(1){
+            font-size:0.7rem ;
+            color: #f33;
+            text-align: center;
+            margin: 0 0 0.853rem 0;
+        }
+        #wrapper>div>div>p:nth-of-type(1) .iconfont{
+             font-size:0.7rem ;
+         }
+        #wrapper>div>div>p:nth-of-type(2){
+            text-align: center;
+            font-size:0.5rem ;
+            color: #333;
+        }
+        #wrapper>div>div>p:nth-of-type(3){
+            text-align: center;
+            font-size:0.5rem ;
+            color: #333;
+        }
+        .costDetail{
+            padding: 0.448rem 0.64rem 0.619rem 0.661rem;
+            margin-top: 0.427rem;
+            background: #fff;
+        }
+        .costDetail h4{
+            font-size:0.5rem;
+            color: #999;
+        }
+        .costDetail div{
+            margin-top: 0.419rem;
+        }
+        .costDetail div>a:nth-of-type(1){
+            font-size:0.5rem;
+            color: #333;
+            float: left;
+        }
+        .costDetail div>a:nth-of-type(2){
+            font-size:0.6rem;
+            color: #333;
+            float: right;
+        }
+        .paymentMode {
+            margin-top: 0.427rem;
+            background: #fff;
+            padding-top: 0.512rem;
+        }
+
+        .paymentMode > h4 {
+            font-size: 0.5rem;
+            color: #999;
+            padding-left: 0.64rem;
+        }
+
+        .paymentMode > div > div {
+            display: flex;
+            padding-top: 0.51rem;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(1) {
+            width: 2.3rem;
+            padding-left: 0.64rem;
+            padding-right: 0.341rem;
+
+        }
+
+        .paymentMode > div > div > div:nth-of-type(1) > img {
+            width: 100%;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) {
+            flex-grow: 1;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid #e5e5e5;
+            position: relative;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) > p:nth-of-type(1) {
+            font-size: 0.6rem;
+            color: #333;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) > p:nth-of-type(2) {
+            font-size: 0.5rem;
+            color: #999;
+        }
+
+        .paymentMode > div > div > div:nth-of-type(2) > div {
+            width: 0.853rem;
+            height: 0.853rem;
+            border-radius: 50%;
+            border: solid 1px #999999;
+            position: absolute;
+            top: 20%;
+            right: 0.64rem;
+            /*background-size: ;*/
+        }
+        .paymentMode > div > div:nth-of-type(1) > div:nth-of-type(2) > div {
+            border: none;
+            background: url("../../idleImg/payment/success.png") no-repeat 50% 50%;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <i class="iconfont icon-zuojiantou" onclick="window.history.go(-1);"></i>
+        <span>支付结果</span>
+    </div>
+    <div id="wrapper">
+        <div>
+            <div>
+                <p><i class="iconfont icon-tanhao"></i>支付失败</p>
+                <p>请在30分钟内完成支付，订单超时将自动关闭！</p>
+                <p>更换其他支付方式试试</p>
+            </div>
+            <div class="costDetail">
+                <h4>费用详情</h4>
+                <div class="clearFix">
+                    <a href="#">商品总额：</a>
+                    <a href="#">¥79.00</a>
+                </div>
+                <div class="clearFix">
+                    <a href="#">运      费：</a>
+                    <a href="#">¥10.00</a>
+                </div>
+                <div class="clearFix">
+                    <a href="#">订单总计：</a>
+                    <a style="font-size:0.7rem;color: #f33;" href="#">¥89.00</a>
+                </div>
+            </div>
+            <div class="paymentMode">
+                <h4>支付方式</h4>
+                <div>
+                    <div>
+                        <div>
+                            <img src="../../idleImg/payment/wx.png" alt="">
+                        </div>
+                        <div class="wx">
+                            <p>微信支付</p>
+                            <p>推荐已在微信中绑定银行卡的用户使用</p>
+                            <div class="paymentMode_btn"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="../../idleImg/payment/zfb.png" alt="">
+                        </div>
+                        <div style="border: none;" class="zfb">
+                            <p>支付宝</p>
+                            <p>安全快捷，可支持银行卡支付</p>
+                            <div class="paymentMode_btn"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="footer">
+        <span>支付订单</span>
+    </div>
+</body>
+<script>
+    $(function () {
+        var index = 1;
+        $('.wx>.paymentMode_btn').on('click', function () {
+            index = 1;
+            $(this).css({
+                'background': 'url("../../idleImg/payment/success.png") no-repeat 50% 50%',
+                'background-size': '100%',
+                'border': '0'
+            });
+            $('.zfb>.paymentMode_btn').css({
+                'background': 'none',
+                'background-size': '100%',
+                'border': 'solid 1px #999999'
+            });
+        });
+        $('.zfb>.paymentMode_btn').on('click', function () {
+            index = 2;
+            $(this).css({
+                'background': 'url("../../idleImg/payment/success.png") no-repeat 50% 50%',
+                'background-size': '100%',
+                'border': '0'
+            });
+            $('.wx>.paymentMode_btn').css({
+                'background': 'none',
+                'background-size': '100%',
+                'border': 'solid 1px #999999'
+            });
+        });
+    })
+</script>
+</html>

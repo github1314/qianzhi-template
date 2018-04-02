@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/headerStyle.css">
+    <link rel="stylesheet" href="../../css/swiper-4.2.0.min.css">
+    <link rel="stylesheet" href="../../font-x/iconfont.css">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <!--<script src="../../js/iscroll.js"></script>-->
+    <!--<script src="../../js/isScroll.js"></script>-->
+    <script src="../../js/swiper-4.2.0.min.js"></script>
+    <title>详情</title>
+    <style>
+        body{
+            background: #F5F5F5;
+            position: relative;
+        }
+        #wrapper{
+            position: absolute;
+            left:0;
+            top:1.877rem;
+            bottom:2.091rem;
+            overflow: auto;
+            width: 100%;
+        }
+        .footer{
+            position: absolute;
+            left:0;
+            bottom: 0;
+            display: flex;
+            width: 100%;
+            height: 2.091rem;
+            background-color: #ffffff;
+        }
+        .footer>div{
+            flex-grow: 1;
+        }
+        .toWantTo{
+            text-align: center;
+            border-top:1px solid #e5e5e5;
+        }
+        .toWantTo>img{
+            width: 0.64rem;
+            height:0.64rem;
+            margin-top: 0.4rem;
+        }
+        .contact{
+            background: #f66;
+            color: #fff;
+            line-height:2.091rem;
+            text-align: center;
+            font-size:0.768rem;
+        }
+        .purchase{
+            background: #f33;
+            color: #fff;
+            line-height:2.091rem;
+            text-align: center;
+            font-size:0.768rem;
+        }
+        .banner{
+            width: 100%;
+        }
+        .banner img{
+            width: 100%;
+        }
+        .swiper-pagination-bullet-active{
+            background: #f33 !important;
+        }
+        .swiper-pagination-bullet{
+            background: #fff;
+            opacity: 1;
+            width: 0.341rem;
+            height: 0.341rem;
+        }
+        .d_detail{
+            padding:0.619rem 0.704rem 0.661rem 0.619rem;
+            background: #fff;
+        }
+        .d_detail h3{
+            margin: 0.619rem 0 0.491rem 0;
+        }
+        .num_detail{
+            margin-top: 0.427rem;
+            background: #fff;
+            padding:0.64rem 0.64rem 0rem 0.64rem;
+        }
+        .n_header{
+            display: flex;
+        }
+
+        .n_header>div:nth-of-type(1)>img{
+            width: 1.365rem;
+            height: 1.365rem;
+            border-radius: 50%;
+        }
+        .n_header>div:nth-of-type(2){
+            flex-grow: 1;
+            padding-left: 0.34rem;
+        }
+        .n_header>div:nth-of-type(2)>p:nth-of-type(1){
+            font-size:0.5rem;
+            color: #333;
+        }
+        .n_header>div:nth-of-type(2)>p:nth-of-type(2){
+            font-size:0.5rem;
+            color: #999;
+        }
+        .n_content{
+            display: flex;
+            padding: 0.83rem 0;
+        }
+        .n_content>div{
+            flex-grow: 1;
+
+        }
+        .n_content>div>p{
+            text-align: center;
+        }
+        .n_content>div>p:nth-of-type(1){
+            font-size:0.768rem;
+            color: #333;
+        }
+        .n_content>div>p:nth-of-type(5){
+            font-size:0.5rem;
+            color: #666;
+        }
+        .n_footer{
+            background: #fff;
+            padding: 0.533rem 0.64rem;
+            border: 1px solid #e5e5e5;
+        }
+        .n_footer>img{
+            width: 0.512rem;
+            height: 0.512rem;
+        }
+        .n_footer>a{
+            font-size:0.5rem;
+            color: #3399ff;
+        }
+        .leavingAMessage{
+            background: #fff;
+            margin-top: 0.427rem;
+            padding:0.64rem 0.661rem 0 0.661rem;
+        }
+        .leavingAMessage>p{
+            font-size:0.64rem;
+            color: #333;
+        }
+        .leavingAMessage>div{
+            display: flex;
+            padding: 0.512rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .leavingAMessage>div>div:nth-of-type(1){
+            width: 1.3rem;
+            padding: 0.3rem 0;
+        }
+        .leavingAMessage>div>div:nth-of-type(1)>img{
+            width: 0.853rem;
+            height: 0.853rem;
+            border-radius: 50%;
+        }
+        .leavingAMessage>div>div:nth-of-type(2){
+            flex-grow: 1;
+            border: solid 1px #cccccc;
+            border-radius: 0.683rem;
+            overflow: hidden;
+        }
+        .leavingAMessage>div>div:nth-of-type(2)>input{
+            width: 100%;
+            height: 1.365rem;
+            outline: none;
+            border: none;
+            text-indent: 1rem;
+        }
+        .leavingAMessage>div>div:nth-of-type(3){
+            width: 3rem;
+            padding: 0.2rem 0 0 0.3rem;
+        }
+        .leavingAMessage>div>div:nth-of-type(3)>a{
+            display: block;
+            width: 2.645rem;
+            height: 1.067rem;
+            line-height: 1.067rem;
+            text-align: center;
+            border-radius: 0.533rem;
+            border: solid 1px #ff6666;
+            color: #f66;
+        }
+        .msgList>li{
+            padding: 0.875rem 0 0.64rem 0;
+            border-bottom: solid 1px #e5e5e5;
+
+        }
+        .msgList li div{
+            float: left;
+        }
+        .msgList>li>a{
+            float: right;
+        }
+        .msgList>li>div:nth-of-type(1)>img{
+            width: 0.853rem;
+            height: 0.853rem;
+            border-radius: 50%;
+        }
+        .msgList>li>div:nth-of-type(2){
+            padding-left: 0.36rem;
+        }
+        .lookMore{
+            padding: 0.512rem 0;
+            background-color: #fff;
+            margin-bottom:0.5rem ;
+        }
+        .lookMore a{
+            display: block;
+            width: 4.267rem;
+            height: 1.067rem;
+            line-height: 1.067rem;
+            text-align: center;
+            border-radius: 0.533rem;
+            border: solid 1px #666666;
+            margin: 0 auto;
+            font-size:0.54rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <i onclick="window.history.go(-1);" class="iconfont icon-zuojiantou"></i>
+        <span>商品详情</span>
+    </div>
+    <div id="wrapper">
+        <div class="containner">
+            <div class="banner">
+                <!--<img src="../../idleImg/zhanweitu.jpg" alt="">-->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                </div>
+            </div>
+            <div class="d_detail">
+                <p><span style="font-size: 0.768rem;color: #f33;margin-right: 0.5rem;">¥99</span><s style="font-size:0.5rem;color: #999;">¥199</s></p>
+                <h3 style="font-size:0.64rem;color: #333;">简约现代布艺沙发小户型组合客厅家具转角多色三人位布沙发可拆洗</h3>
+                <p style="font-size:0.5rem;color: #333;">黑色铁艺与胡桃木色经典的设计，让人感觉到有岁月沉淀的味道。整个设计不会随着时光的推移而落后，反而越用越经典。这不就是我们一直在寻找的家的感觉，不管多少年都是那么幸福美满。</p>
+                <div style="color: #999;font-size:0.42rem;margin-top: 0.64rem;">
+                    <img style="width: 0.469rem;height: 0.469rem;" src="../../idleImg/detail/times.png" alt="">
+                    <span>一小时前来过</span>
+                    <img style="width: 0.341rem;height: 0.469rem;margin-left: 0.832rem;" src="../../idleImg/shopDetailImg/adress.png" alt="">
+                    <span>北京市昌平区</span>
+                </div>
+            </div>
+            <div class="num_detail">
+                <div class="n_header">
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <p>wang123456...</p>
+                        <p>
+                            <span>郑州市金水区</span>
+                            <span>一天前来过</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="n_content">
+                    <div>
+                        <p>36</p>
+                        <p>在售宝贝</p>
+                    </div>
+                    <div>
+                        <p>6</p>
+                        <p>卖出宝贝</p>
+                    </div>
+                </div>
+            </div>
+            <div class="n_footer">
+                <img src="../../idleImg/detail/ok1.png" alt="">
+                <span style="font-size:0.5rem;color: #999;">阅读并同意</span>
+                <a href="#"></a>
+                <a href="#">《闲置商品售卖协议》</a>
+                <a href="#">《社区使用协议》</a>
+            </div>
+            <div class="leavingAMessage">
+                <p>大家都再说 <span>(2)</span></p>
+                <div>
+                    <div>
+                        <img src="../../idleImg/zhanweitu.jpg" alt="">
+                    </div>
+                    <div>
+                        <input id="msg" type="text">
+                    </div>
+                    <div>
+                        <a href="#" id="msg_btn">留言</a>
+                    </div>
+                </div>
+                <ul class="msgList">
+                    <li class="clearFix">
+                        <div>
+                            <img src="../../idleImg/zhanweitu.jpg" alt="">
+                        </div>
+                        <div>
+                            <p>
+                                <span style="font-size: 0.5rem;color: #333;">王小明</span>
+                                <span style="font-size:o.427rem;color: #999;">一小时前来过</span>
+                            </p>
+                            <p style="color: #333;font-size:0.512rem;">挺好的，能便宜点吗。</p>
+                        </div>
+                        <a id="reply" href="#" style="font-size:0.5rem;color: #666;">回复</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="lookMore">
+                <a href="#">查看更多</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="toWantTo">
+            <img src="../../idleImg/detail/xing.png" alt="">
+            <p>想要</p>
+        </div>
+        <div class="contact">
+            <span>联系卖家</span>
+        </div>
+        <div class="purchase">
+            <span>立即购买</span>
+        </div>
+    </div>
+</body>
+<script src="../../js/swiper_js.js"></script>
+<script>
+    $(function () {
+        var flag = true;
+        $('.n_footer>img').click(function () {
+            if(flag){
+                $(this).attr('src','../../idleImg/detail/ok2.png');
+                flag = !flag;
+            }else {
+                $(this).attr('src','../../idleImg/detail/ok1.png');
+                flag = !flag;
+            }
+        });
+        $('#msg').bind('focus',function () {
+            $('.footer').hide();
+            $('#wrapper').css('bottom',0);
+
+        }).bind('blur',function () {
+            $('.footer').show();
+            $('#wrapper').css('bottom','2.091rem');
+        });
+
+        var winHeight = $(window).height();
+        $(window).resize(function () {
+            var thisHeight = $(this).height();
+            if (winHeight - thisHeight > 50) {
+                //窗口发生改变(大),故此时键盘弹出
+                //当软键盘弹出，在这里面操作
+                $('.footer').hide();
+            } else {
+                //窗口发生改变(小),故此时键盘收起
+                //当软键盘收起，在此处操作
+                $('.footer').show();
+            }
+        });
+
+        $('#msg_btn').click(function () {
+//            $('#msg').blur();
+            if($('#msg').val()){
+                var $val = $('#msg').val();
+                var $li = $("<li class='clearFix'>" +
+                    "<div>" +
+                    "<img src=\"../../idleImg/zhanweitu.jpg\" alt=\"\">" +
+                    "</div>" +
+                    "<div>" +
+                    "<p>\n" +
+                    "<span style=\"font-size: 0.5rem;color: #333;\">王小明</span>\n" +
+                    "<span style=\"font-size:o.427rem;color: #999;\">一小时前来过</span>\n" +
+                    "</p>\n" +
+                    "<p style=\"color: #333;font-size:0.512rem;\">"+ $val +"</p>" +
+                    "</div>" +
+                    "<a id=\"reply\" href=\"#\" style=\"font-size:0.5rem;color: #666;\">回复</a>" +
+                    "</li>");
+                $('.msgList').append($li);
+                $('#msg').val('');
+            }else {
+                console.log('input留言不能为空');
+            }
+        });
+
+        $('.msgList').on('click','a',function () {
+            var n = $(this).parent().children('div').eq(1).children('p').eq(0).children('span').eq(0).text();
+            $('#msg').val('回复'+n);
+
+        })
+
+
+        $('.purchase').on('click',function () {
+            window.location.href = '../settlement/paymentOrder.html';
+        })
+
+    });
+</script>
+</html>
